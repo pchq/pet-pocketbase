@@ -1,0 +1,1 @@
+enum PbCollection { users, tasks }

@@ -1,0 +1,55 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "PocketBase Serve",
+			"type": "shell",
+			"command": "./server/pocketbase",
+			"args": [
+				"serve",
+			],
+			"group": "build",
+			"detail": ""
+		},
+		{
+			"label": "Build Runner Build",
+			"type": "dart",
+			"command": "dart",
+			"args": [
+				"run",
+				"build_runner",
+				"build",
+				"--delete-conflicting-outputs"
+			],
+			"problemMatcher": [
+				"$dart-build_runner"
+			],
+			"group": "build",
+			"detail": ""
+		},
+		{
+			"label": "Flutter Localize",
+			"type": "shell",
+			"command": "flutter",
+			"group": "build",
+			"options": {
+				"cwd": "${cwd}"
+			},
+			"runOptions": {
+				"instanceLimit": 1,
+				"reevaluateOnRerun": false
+			},
+			"args": [
+				"gen-l10n"
+			],
+			"presentation": {
+				"echo": true,
+				"focus": true,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			},
+			"problemMatcher": []
+		},
+	]
+}
