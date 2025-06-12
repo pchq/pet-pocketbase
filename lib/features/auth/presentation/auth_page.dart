@@ -7,7 +7,7 @@ import '../../../common/presentation/widgets/snack_bar.dart';
 import '../../../core/di/locator.dart';
 import '../../../core/routing/app_router.dart';
 import '../../../theme/theme_ext.dart';
-import '../domain/cubit/auth_cubit.dart';
+import '../domain/cubits/auth_cubit.dart';
 
 const _demoName = 'test@user.br';
 const _demoPass = '1234567890';

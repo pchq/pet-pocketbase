@@ -5,7 +5,7 @@ import 'package:pocketbase/pocketbase.dart';
 
 import '../storage/local_storage.dart';
 
-@singleton
+@lazySingleton
 class PocketBaseService {
   final LocalStorage _storage;
   late final PocketBase pb;

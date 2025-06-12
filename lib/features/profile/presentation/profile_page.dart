@@ -6,7 +6,7 @@ import '../../../common/presentation/widgets/loader.dart';
 import '../../../common/presentation/widgets/snack_bar.dart';
 import '../../../core/di/locator.dart';
 import '../../../core/routing/app_router.dart';
-import '../domain/cubit/profile_cubit.dart';
+import '../domain/cubits/profile_cubit.dart';
 
 @RoutePage()
 class ProfilePage extends StatelessWidget implements AutoRouteWrapper {

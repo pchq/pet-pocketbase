@@ -69,7 +69,7 @@ class TasksRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const TasksPage();
+      return WrappedRoute(child: const TasksPage());
     },
   );
 }

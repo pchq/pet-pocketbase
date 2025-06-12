@@ -4,7 +4,7 @@ import 'package:injectable/injectable.dart';
 import '../../pocketbase/pocketbase_service.dart';
 import '../app_router.dart';
 
-@singleton
+@lazySingleton
 class AuthGuard extends AutoRouteGuard {
   final PocketBaseService _pocketBaseService;
 

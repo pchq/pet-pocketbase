@@ -20,16 +20,22 @@ import 'package:pet_pocketbase/core/routing/guards/auth_guard.dart' as _i917;
 import 'package:pet_pocketbase/core/storage/local_storage.dart' as _i861;
 import 'package:pet_pocketbase/features/auth/data/repositories/auth_repository_impl.dart'
     as _i206;
-import 'package:pet_pocketbase/features/auth/domain/cubit/auth_cubit.dart'
-    as _i886;
+import 'package:pet_pocketbase/features/auth/domain/cubits/auth_cubit.dart'
+    as _i454;
 import 'package:pet_pocketbase/features/auth/domain/repositories/auth_repository.dart'
     as _i500;
 import 'package:pet_pocketbase/features/profile/data/repositories/profile_repository_impl.dart'
     as _i486;
-import 'package:pet_pocketbase/features/profile/domain/cubit/profile_cubit.dart'
-    as _i480;
+import 'package:pet_pocketbase/features/profile/domain/cubits/profile_cubit.dart'
+    as _i813;
 import 'package:pet_pocketbase/features/profile/domain/repositories/profile_repository.dart'
     as _i82;
+import 'package:pet_pocketbase/features/tasks/data/repositories/tasks_repository_impl.dart'
+    as _i803;
+import 'package:pet_pocketbase/features/tasks/domain/cubits/tasks_cubit.dart'
+    as _i480;
+import 'package:pet_pocketbase/features/tasks/domain/repositories/tasks_repository.dart'
+    as _i737;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -48,23 +54,29 @@ Future<_i174.GetIt> $configureDependencies(
   gh.singleton<_i861.LocalStorage>(
     () => _i861.LocalStorage(gh<_i460.SharedPreferences>()),
   );
-  gh.singleton<_i196.PocketBaseService>(
+  gh.lazySingleton<_i196.PocketBaseService>(
     () => _i196.PocketBaseService(gh<_i861.LocalStorage>()),
   );
-  gh.singleton<_i917.AuthGuard>(
+  gh.lazySingleton<_i917.AuthGuard>(
     () => _i917.AuthGuard(gh<_i196.PocketBaseService>()),
+  );
+  gh.factory<_i737.TasksRepository>(
+    () => _i803.TasksRepositoryImpl(gh<_i196.PocketBaseService>()),
   );
   gh.factory<_i82.ProfileRepository>(
     () => _i486.ProfileRepositoryImpl(gh<_i196.PocketBaseService>()),
   );
+  gh.factory<_i480.TasksCubit>(
+    () => _i480.TasksCubit(gh<_i737.TasksRepository>()),
+  );
   gh.factory<_i500.AuthRepository>(
     () => _i206.AuthRepositoryImpl(gh<_i196.PocketBaseService>()),
   );
-  gh.factory<_i480.ProfileCubit>(
-    () => _i480.ProfileCubit(gh<_i82.ProfileRepository>()),
+  gh.factory<_i813.ProfileCubit>(
+    () => _i813.ProfileCubit(gh<_i82.ProfileRepository>()),
   );
-  gh.factory<_i886.AuthCubit>(
-    () => _i886.AuthCubit(gh<_i500.AuthRepository>()),
+  gh.factory<_i454.AuthCubit>(
+    () => _i454.AuthCubit(gh<_i500.AuthRepository>()),
   );
   return getIt;
 }
