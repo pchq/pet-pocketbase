@@ -1,12 +1,9 @@
-import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'di.config.dart';
+import 'locator.dart';
 
 @InjectableInit(
   initializerName: r'$configureDependencies',
-  preferRelativeImports: false,
-  asExtension: false,
+  preferRelativeImports: true,
 )
-Future<void> configureDependencies(GetIt locator) async {
-  await $configureDependencies(locator);
-}
+Future<void> configureDependencies() async => locator.$configureDependencies();

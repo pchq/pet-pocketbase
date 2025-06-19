@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 const _pbTokenKey = 'pb_token';
 
-@singleton
+@lazySingleton
 class LocalStorage {
   final SharedPreferences _box;
   LocalStorage(this._box);
